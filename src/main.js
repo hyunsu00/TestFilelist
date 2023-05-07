@@ -15,6 +15,14 @@ function getFiles (dir, files_){
 }
 
 const files = getFiles('./public/libs');
+let rFiles = [];
 for (var i in files){
-  console.log(files[i]);
+  // console.log(files[i]);
+  rFiles.push(files[i].replace('./public', ''));
 }
+for (var i in rFiles){
+  console.log(rFiles[i]);
+}
+
+fs.writeFileSync("123.txt", JSON.stringify(rFiles));
+
